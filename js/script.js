@@ -11,4 +11,4 @@ for (let index = 0; index < questionArray.length; index++) {
 change_btn_color("1")
 display(0)
 
-console.log("Hello");
+console.log("Hello just nigaletch");
