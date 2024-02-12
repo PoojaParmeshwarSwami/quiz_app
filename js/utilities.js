@@ -6,13 +6,15 @@ const buttons_container = document.querySelector(".buttons_container");
 const qNo = document.querySelector("#qNo");
 const qtn = document.querySelector("#qtn");
 const optionContainer =document.querySelector(".optionContainer")
-const option = document.querySelector(".options")
 const options = document.querySelectorAll(".options")
+const nextbtn = document.querySelector("#nextbtn");
 
 export function createbtn(val) {
+ 
     const btn = document.createElement("button");
     btn.innerHTML = val;
-    btn.addEventListener("click", function (e) {
+
+     btn.addEventListener("click", function (e) {
       activebtn.innerHTML = val;
       qNo.innerHTML = val;
       change_btn_color(e.target.innerHTML);
@@ -21,6 +23,16 @@ export function createbtn(val) {
     buttons_container.appendChild(btn);
   }
  
+//  <------nextButton--->
+  //   nextbtn.addEventListener("click",function(e){
+  //     change_btn_color(e.target.innerHTML);
+      // display(e.target.innerHTML - 1);
+  // })
+  
+
+
+
+
   
   export function display(disp) {
     qtn.innerHTML = questionArray[disp].question;
@@ -41,6 +53,7 @@ export function change_btn_color(arg) {
       }
     }
   }
+// <------ onClick option color change -------->
 
   optionContainer.addEventListener("click",function(e){
     change_opt_color(e.target)
@@ -60,8 +73,10 @@ export function change_btn_color(arg) {
       optionList[i].style.backgroundColor = "white";
     }
   }
+ }
 
-  }
+
+
 
 
   
