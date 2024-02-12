@@ -8,7 +8,6 @@ const qtn = document.querySelector("#qtn");
 
 const options = document.querySelectorAll(".options")
 
-
 export function createbtn(val) {
     const btn = document.createElement("button");
     btn.innerHTML = val;
@@ -21,7 +20,6 @@ export function createbtn(val) {
     buttons_container.appendChild(btn);
   }
 
-  
   export function display(disp) {
     qtn.innerHTML = questionArray[disp].question;
     console.log(options)
@@ -29,7 +27,6 @@ export function createbtn(val) {
       element.innerHTML = questionArray[disp].option[ind]
     });
 }
-
 
 export function change_btn_color(arg) {
     let buttonList = buttons_container.children;
