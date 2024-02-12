@@ -1,0 +1,86 @@
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+height: 70%;
+width: 70%;
+display: flex;
+border: 1px solid black;
+}
+.questionDiv{
+    border: 1px solid black;
+    height: 100%;
+    width: 75%;
+}
+.buttonDiv{
+  
+    height: 100%;
+    width: 25%;
+    border: 1px solid black;
+
+}
+.button_info_container{
+    height: 20%;
+    width: 100%;
+    border: 1px solid black;
+    display: flex;
+    gap: 10px;
+   
+}
+.buttons_container{
+    height: 79.6%;
+    width: 100%;
+    /* gap: 10px; */
+    /* display: flex; */
+    /* justify-content: space-around; */
+    border: 1px solid black;
+}
+button{
+    height: 60px;
+    width: 60px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-top: 20px;
+    border-radius: 50px;
+    border: 6px solid white;
+    
+}
+.qtnContainer{
+    height: 29%;
+    width: 100%;
+    border: 1px solid black;
+}
+.optionContainer{
+    height: 35%;
+    width: 100%;
+    border: 1px solid black;
+}
+.explanationContainer{
+    height: 20%;
+    width: 100%;
+    border: 1px solid black;
+}
+.qtnNum{
+    display: flex;
+}
+.options{
+    height:24.05%;
+    width: 100%;
+    border: 1px solid red;
+}
+.actionBtn{
+    display: flex;
+    justify-content: space-around;
+}
+.btn{
+    height:40px;
+    width: 80px;
+    margin-bottom: 2.1%;
+    border-radius: 7px;
+    flex-wrap: nowrap;
+    border: 1px solid black;
+}
