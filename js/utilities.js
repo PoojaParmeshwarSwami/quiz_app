@@ -5,37 +5,80 @@ const activebtn = document.querySelector("#activebtn");
 const buttons_container = document.querySelector(".buttons_container");
 const qNo = document.querySelector("#qNo");
 const qtn = document.querySelector("#qtn");
-
+const optionContainer = document.querySelector(".optionContainer")
 const options = document.querySelectorAll(".options")
+const nextbtn = document.querySelector("#nextbtn");
+
+let questionNumber = 1
 
 export function createbtn(val) {
-    const btn = document.createElement("button");
-    btn.innerHTML = val;
-    btn.addEventListener("click", function (e) {
-      activebtn.innerHTML = val;
-      qNo.innerHTML = val;
-      change_btn_color(e.target.innerHTML);
-      display(e.target.innerHTML - 1);
-    });
-    buttons_container.appendChild(btn);
-  }
+  const btn = document.createElement("button");
+  btn.innerHTML = val;
+  btn.addEventListener("click", function (e) {
+    questionNumber = Number(val)
+    activebtn.innerHTML = val;
+    qNo.innerHTML = val;
+    rest_opt_color()
+    change_btn_color(e.target.innerHTML);
+    display(e.target.innerHTML - 1);
+  });
+  buttons_container.appendChild(btn);
+}
 
-  export function display(disp) {
-    qtn.innerHTML = questionArray[disp].question;
-    console.log(options)
-    options.forEach((element,ind) => {
-      element.innerHTML = questionArray[disp].option[ind]
-    });
+export function display(disp) {
+  qtn.innerHTML = questionArray[disp].question;
+  options.forEach((element, ind) => {
+    element.innerHTML = questionArray[disp].option[ind]
+  });
 }
 
 export function change_btn_color(arg) {
-    let buttonList = buttons_container.children;
-    for (let i = 0; i < buttonList.length; i++) {
-      if (buttonList[i].innerHTML === arg) {
-        buttonList[i].style.backgroundColor = "green";
-      } else {
-        buttonList[i].style.backgroundColor = "grey";
-      }
+  let buttonList = buttons_container.children;
+  for (let i = 0; i < buttonList.length; i++) {
+    if (buttonList[i].innerHTML === arg) {
+      buttonList[i].style.backgroundColor = "green";
+    } else {
+      buttonList[i].style.backgroundColor = "grey";
     }
   }
-  
+}
+// <------ onClick option color change -------->
+
+optionContainer.addEventListener("click", function (e) {
+  console.log(e.target.innerHTML)
+  change_opt_color(e.target)
+});
+
+
+export function change_opt_color(opt) {
+  let optionList = optionContainer.children;
+  for (let i = 0; i < optionList.length; i++) {
+    if (optionList[i].innerHTML === opt.innerHTML) {
+      optionList[i].style.backgroundColor = "green";
+    }
+    else {
+      optionList[i].style.backgroundColor = "white";
+    }
+  }
+}
+
+
+export function rest_opt_color(){
+  let optionList = optionContainer.children;
+  console.log(optionList)
+  for (let i = 0; i < optionList.length; i++) {
+    optionList[i].style.backgroundColor = "white";
+  }
+}
+
+nextbtn.addEventListener("click",()=>{
+    questionNumber+=1
+    activebtn.innerHTML = questionNumber;
+    qNo.innerHTML = questionNumber;
+    rest_opt_color()
+    change_btn_color(String(questionNumber));
+    display(questionNumber - 1);
+})
+
+
+
