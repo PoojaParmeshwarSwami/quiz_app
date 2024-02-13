@@ -10,10 +10,12 @@ const options = document.querySelectorAll(".options")
 const nextbtn = document.querySelector("#nextbtn");
 
 let questionNumber = 1
+let totalbtn = 1
 
 export function createbtn(val) {
   const btn = document.createElement("button");
   btn.innerHTML = val;
+  totalbtn = Number(val)
   btn.addEventListener("click", function (e) {
     questionNumber = Number(val)
     activebtn.innerHTML = val;
@@ -45,7 +47,7 @@ export function change_btn_color(arg) {
 // <------ onClick option color change -------->
 
 optionContainer.addEventListener("click", function (e) {
-  console.log(e.target.innerHTML)
+  // console.log(e.target.innerHTML)
   change_opt_color(e.target)
 });
 
@@ -65,20 +67,34 @@ export function change_opt_color(opt) {
 
 export function rest_opt_color(){
   let optionList = optionContainer.children;
-  console.log(optionList)
+  // console.log(optionList)
   for (let i = 0; i < optionList.length; i++) {
     optionList[i].style.backgroundColor = "white";
   }
 }
 
 nextbtn.addEventListener("click",()=>{
-    questionNumber+=1
+    
+    console.log(questionNumber)
+    console.log(totalbtn)
+    if((questionNumber)<totalbtn){
+      questionNumber+=1
     activebtn.innerHTML = questionNumber;
     qNo.innerHTML = questionNumber;
     rest_opt_color()
     change_btn_color(String(questionNumber));
     display(questionNumber - 1);
+    }
+    else{
+      change_btn_color("1")
+display(0)
+activebtn.innerHTML = "1";
+qNo.innerHTML = "1";
+
+
+    }
 })
+
 
 
 

@@ -34,11 +34,7 @@
       option: ["A7", "B7", "C7", "D7"],
       answer: 1,
     },
-    {
-      question: "Question8",
-      option: ["A8", "B8", "C8", "D8"],
-      answer: 1,
-    },
+    
   ];
 
 export default array
