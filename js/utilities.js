@@ -8,7 +8,7 @@ const qtn = document.querySelector("#qtn");
 const optionContainer = document.querySelector(".optionContainer")
 const options = document.querySelectorAll(".options")
 const nextbtn = document.querySelector("#nextbtn");
-
+const prevbtn =document.querySelector("#prevbtn")
 let questionNumber = 1
 let totalbtn = 1
 
@@ -75,8 +75,6 @@ export function rest_opt_color(){
 
 nextbtn.addEventListener("click",()=>{
     
-    console.log(questionNumber)
-    console.log(totalbtn)
     if((questionNumber)<totalbtn){
       questionNumber+=1
     activebtn.innerHTML = questionNumber;
@@ -85,16 +83,33 @@ nextbtn.addEventListener("click",()=>{
     change_btn_color(String(questionNumber));
     display(questionNumber - 1);
     }
-    else{
-      change_btn_color("1")
-display(0)
-activebtn.innerHTML = "1";
-qNo.innerHTML = "1";
-
-
-    }
+    // else{
+    //   change_btn_color("1")
+    //   display(0)
+    //   activebtn.innerHTML = "1";
+    //   qNo.innerHTML = "1";
+    // }
 })
 
+prevbtn.addEventListener("click",()=>{
+  if(questionNumber>1){
+    console.log(questionNumber)
+  questionNumber-=1
+  activebtn.innerHTML = questionNumber;
+    qNo.innerHTML = questionNumber;
+    rest_opt_color()
+    change_btn_color(String(questionNumber));
+    display(questionNumber - 1);
+  }
+  // else{
+  //   change_btn_color("1")
+  //     display(0)
+  //     activebtn.innerHTML = "1";
+  //     qNo.innerHTML = "1";
+
+  // }
+
+})
 
 
 
