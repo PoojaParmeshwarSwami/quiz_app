@@ -1,5 +1,6 @@
+import array from './questionArray.js';
 import questionArray from './questionArray.js'
-
+const exp = document.querySelector("#exp");
 const totolbtn = document.querySelector("#totolbtn");
 const activebtn = document.querySelector("#activebtn");
 const buttons_container = document.querySelector(".buttons_container");
@@ -8,9 +9,16 @@ const qtn = document.querySelector("#qtn");
 const optionContainer = document.querySelector(".optionContainer")
 const options = document.querySelectorAll(".options")
 const nextbtn = document.querySelector("#nextbtn");
-const prevbtn =document.querySelector("#prevbtn")
+const prevbtn =document.querySelector("#prevbtn");
+const submitbtn = document.querySelector("#submitbtn");
+const tSubmit = document.querySelector("#tSubmit")
+console.log(submitbtn);
+
 let questionNumber = 1
+
+let optionVar =1
 let totalbtn = 1
+export let ansArray=[];
 
 export function createbtn(val) {
   const btn = document.createElement("button");
@@ -18,6 +26,7 @@ export function createbtn(val) {
   totalbtn = Number(val)
   btn.addEventListener("click", function (e) {
     questionNumber = Number(val)
+   
     activebtn.innerHTML = val;
     qNo.innerHTML = val;
     rest_opt_color()
@@ -47,15 +56,19 @@ export function change_btn_color(arg) {
 // <------ onClick option color change -------->
 
 optionContainer.addEventListener("click", function (e) {
-  // console.log(e.target.innerHTML)
+  //console.log(e.target.innerHTML)
   change_opt_color(e.target)
+
 });
+
 
 
 export function change_opt_color(opt) {
   let optionList = optionContainer.children;
   for (let i = 0; i < optionList.length; i++) {
+
     if (optionList[i].innerHTML === opt.innerHTML) {
+      optionVar = i
       optionList[i].style.backgroundColor = "green";
     }
     else {
@@ -96,7 +109,7 @@ prevbtn.addEventListener("click",()=>{
     console.log(questionNumber)
   questionNumber-=1
   activebtn.innerHTML = questionNumber;
-    qNo.innerHTML = questionNumber;
+    qNo.innerHTML = questionNumber; 
     rest_opt_color()
     change_btn_color(String(questionNumber));
     display(questionNumber - 1);
@@ -109,7 +122,23 @@ prevbtn.addEventListener("click",()=>{
 
   // }
 
+
+})
+console.log(array[3].answer)
+
+submitbtn.addEventListener("click",()=>{
+  ansArray[questionNumber-1] = optionVar
+  if(ansArray[questionNumber-1] === array[questionNumber-1].answer){
+    exp.innerHTML = array[questionNumber-1].explanation;
+  }else{
+    exp.innerHTML="you are wrong"
+  }
 })
 
-
-
+tSubmit.addEventListener("click",function(){
+  let buttonList = buttons_container.children;
+  for(let i=0;i<ansArray.length;i++){
+  if(ansArray[i]=== -1)
+  buttonList[i].style.backgroundColor ="red"
+  }
+})

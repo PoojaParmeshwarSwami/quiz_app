@@ -2,22 +2,28 @@
     {
       question: "Question1",
       option: ["A1", "B1", "C1", "D1"],
-      answer: 3,
+      answer: 0,
+      explanation: "this a 1st question and answeris number 0",
+
     },
+
     {
       question: "Question2",
       option: ["A2", "B2", "C2", "D2"],
       answer: 2,
+      explanation: "this a 2nd question and answeris number 2",
     },
     {
       question: "Question3",
       option: ["A3", "B3", "C3", "D3"],
       answer: 0,
+      explanation: "this 3rd question and answeris number 0",
+
     },
     {
       question: "Question4",
       option: ["A4", "B4", "C4", "D4"],
-      answer: 1,
+      answer: 3,
     },
     {
       question: "Question5",
