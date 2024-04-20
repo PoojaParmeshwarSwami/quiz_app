@@ -128,17 +128,30 @@ console.log(array[3].answer)
 
 submitbtn.addEventListener("click",()=>{
   ansArray[questionNumber-1] = optionVar
+  
   if(ansArray[questionNumber-1] === array[questionNumber-1].answer){
     exp.innerHTML = array[questionNumber-1].explanation;
   }else{
     exp.innerHTML="you are wrong"
   }
+
 })
 
-tSubmit.addEventListener("click",function(){
+tSubmit.addEventListener("click",async function(){
+  
   let buttonList = buttons_container.children;
   for(let i=0;i<ansArray.length;i++){
   if(ansArray[i]=== -1)
   buttonList[i].style.backgroundColor ="red"
   }
+  setTimeout(()=>{
+    // confirm("do you want to submit")
+    let text;
+if (confirm("do you want to submit") == true) {
+  text = "You pressed OK!";
+} else {
+  text = "You canceled!";
+}
+  })
 })
+
